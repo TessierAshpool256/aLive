@@ -1,13 +1,13 @@
-import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.10"
-    id("org.jetbrains.compose") version "1.5.10-beta01"
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.composeHotReload)
 }
 
-group = "org.a.live"
+group = "org.aLive"
 version = "1.0"
 
 repositories {
@@ -19,16 +19,37 @@ repositories {
 }
 
 dependencies {
-    implementation(compose.desktop.currentOs)
+//    implementation(compose.desktop.currentOs)
+//    implementation(compose.uiTooling)
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "11"
+
+kotlin {
+    jvm("desktop")
+
+    sourceSets {
+        val desktopMain by getting
+
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+        }
+
+        desktopMain.dependencies {
+            implementation(compose.desktop.currentOs)
+            implementation(libs.kotlinx.coroutinesSwing)
+        }
+    }
 }
 
 compose.desktop {
     application {
         mainClass = "MainKt"
+
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "aLive"

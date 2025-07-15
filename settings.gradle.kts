@@ -1,10 +1,40 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
-        google()
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
+        mavenCentral()
         gradlePluginPortal()
-        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
     }
-    
 }
+
+dependencyResolutionManagement {
+    repositories {
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
+        mavenCentral()
+    }
+}
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+}
+
 rootProject.name = "aLive"
 
+
+include("app")
+include("desktop")
+include("app:src:desktop")
+include("app:application")
