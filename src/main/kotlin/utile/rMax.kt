@@ -1,5 +1,6 @@
 package utile
 
+
 fun rMax(i: Int, max: Int) =
     when {
         i >= max -> 0

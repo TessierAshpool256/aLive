@@ -2,6 +2,7 @@ package model
 
 import androidx.compose.runtime.*
 
+
 class DoteModel {
     lateinit var dote : MutableState<Boolean>
 

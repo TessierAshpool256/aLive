@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import model.DoteModel
 
+
 @Composable
 fun doteView(doteModel: DoteModel) {
     val color = if ( doteModel.dote.value ) Color.Green else Color.White

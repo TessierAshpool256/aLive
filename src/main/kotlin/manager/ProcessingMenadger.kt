@@ -4,6 +4,7 @@ import model.DoteModel
 import utile.rMax
 import data.Data
 
+
 object ProcessingManager {
     fun processing(map : Array<Array<DoteModel>>, buf : Array<Array<Boolean>>) {
         var count = 0
@@ -25,5 +26,4 @@ object ProcessingManager {
             }
         }
     }
-
 }

@@ -15,6 +15,7 @@ import model.DoteModel
 import utile.copyM
 import view.doteView
 
+
 @Composable
 fun mapScreen(map: Array<Array<DoteModel>>, buffer:  Array<Array<Boolean>>, control: ControlModel) {
     if ( !(control.pause.value || control.oneStep.value) ) {
