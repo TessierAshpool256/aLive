@@ -1,8 +1,8 @@
 package manager
 
+import data.Data
 import model.DoteModel
 import utile.rMax
-import data.Data
 
 
 object ProcessingManager {

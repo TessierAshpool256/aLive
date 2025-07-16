@@ -11,8 +11,8 @@ class ControlModel {
 
     @Composable
     fun init(
-        pause_ : Boolean,
-        oneStat_ : Boolean
+        pause_    : Boolean,
+        oneStat_  : Boolean
     ) {
         pause   = mutableStateOf(pause_)
         oneStep = mutableStateOf(oneStat_)

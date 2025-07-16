@@ -1,0 +1,18 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group = 'settings'
+version = 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    testImplementation(jetbrains.kotlin:kotlin-test)
+}
+
+test {
+    useJUnitPlatform()
+}

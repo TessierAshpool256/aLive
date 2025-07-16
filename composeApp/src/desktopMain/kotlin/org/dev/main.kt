@@ -1,9 +1,13 @@
+package org.dev
+
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 
-
 fun main() = application {
-    Window(onCloseRequest = ::exitApplication, title = "a Live") {
-        App(size = 32)
+    Window(
+        onCloseRequest = ::exitApplication,
+        title = "aLive",
+    ) {
+        App()
     }
 }
